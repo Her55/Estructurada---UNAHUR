@@ -1,0 +1,79 @@
+// 1.
+program{
+   /*Proposito:poner iniciales de en el tablero,y dejar el cabezal en el ultimo casillero
+   pre-condiciones: -tablero de al menos 3 celdas en fila, vacias
+                    -
+    observaciones:  1bolitaVerde = letra "H"
+                    2bolitasVerdes = letra "J"    
+                    1bolita roja = Letra "V"
+   */
+   IrAlBorde(Oeste)
+   DibujarLetraH()
+   Mover(Este)
+   DibujarLetraJ()
+   Mover(Este)
+   DibujarLetraV()
+}
+
+procedure DibujarLetraH(){
+    /* Proposito: dibujar la letra "H"
+    pre-condiciones: celda vacia
+    */
+    Poner(Verde)
+}
+procedure DibujarLetraJ(){
+    /* Proposito: dibujar la letra "H"
+    pre-condiciones: celda vacia
+    */
+    Poner(Verde)
+    Poner(Verde)
+}
+procedure DibujarLetraV(){
+    /* Proposito: dibujar la letra "H"
+    pre-condiciones: celda vacia
+    */
+    Poner(Rojo)
+}
+
+//2.
+procedure DibujarRectanguloRojoYNegroDe5x3(){
+    	/*
+	PROPÓSITO: Poner un rectángulo sólido de 5 celdas de ancho y 3
+	celdas de alto, en la que cada celda tenga una bolita de color
+	Rojo y una de color Negro. El cabezal comienza y termina en el
+	vértice inferior izquierda del mismo.
+	PRECONDICIONES:
+	* Hay al menos 4 celdas al Este y 2 celdas al Norte de la celda
+	actual.
+	*/
+    IrAlBorde(Sur)
+    repeat(2){
+        DibujarFilaDeRojoYNegro()
+        Mover(Norte)
+    }
+    DibujarFilaDeRojoYNegro()
+}
+procedure DibujarFilaDeRojoYNegro(){
+     /*Proposito: dibujar una fila de bolitas rojas y negras
+    Pre-condiciones: tener una fila de 5 celdas
+    */
+    IrAlBorde(Oeste)
+    repeat(4){
+        Poner(Rojo)
+        Poner(Negro)
+        Mover(Este)
+    }
+    Poner(Rojo)
+    Poner(Negro)
+}
+
+//3.
+procedure PonerUnaDeCada(){
+    /* PROPÓSITO: pone una bolita de cada color
+    PRECONDICIONES: niguna.
+    */
+    Poner(Verde)
+    Poner(Azul)
+    Poner(Rojo)
+    Poner(Negro)
+}

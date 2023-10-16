@@ -1,0 +1,175 @@
+//Practica 2
+/*PonerUnaDeCada() que ponga una bolita de cada color en la celda actual*/
+procedure PonerUnaDeCada(){
+    /* PROPÓSITO: pone una bolita de cada color
+    PRECONDICIONES: niguna.
+    */
+    Poner(Verde)
+    Poner(Azul)
+    Poner(Rojo)
+    Poner(Negro)
+}
+--------------------------------------------------------------------------------------------------------
+//Practica 4
+/*9. Poner de a muchas
+BIBLIOTECA Escribir un procedimiento Poner_DeColor_(cantidadAPoner, colorAPoner) que
+dado un número cantidadAPoner y un color colorAPoner, ponga tantas bolitas como se indica del
+color dado de la celda actual.
+*/
+procedure Poner_DeColor_(cantidadAPoner, colorAPoner){
+    /*PROPOSITO: poner tantas bolitas dadas por **cantidadAPoner** de color dado
+    por **colorAPoner**
+    PARAMETROS: * cantidadAPoner : numero - cantidad de bolitas a poner
+                * colorAPoner : color - color de la bolita
+    PRE-CONDICIONES: ninguna.  */
+    repeat(cantidadAPoner){
+        Poner(colorAPoner)
+    }
+}
+/*10.Moviendo tantas veces como quieras a donde quieras
+BIBLIOTECA Escribir Mover_VecesAl_(cantidadAMover, direcciónAMover), un
+procedimiento que dado un número cantidadAMover y una dirección direcciónAMover mueva el
+cabezal tantas veces como la dada en dicha dirección.
+*/
+procedure Mover_VecesAl_(cantidadAMover, direccionAMover){
+    /*PROPOSITO: Moverse tantas cantidad de veces dadas **cantidadAMover**
+                hacia la **direccionAMover** celdas.
+    PARAMETROS: * cantidadAMover : numero - numero de celdas a moverse
+                * direccionAMover : cardinalidad - hacia donde se va a mover
+    PRE-CONDICIONES: tener tantas cantidad de celdas hacia **direccionAMover**. */
+    repeat(cantidadAMover){
+        Mover(direccionAMover)
+    }
+}
+/*11.Sacar de a muchas
+BIBLIOTECA Escribir un procedimiento Sacar_DeColor_(cantidadASacar, colorASacar) que
+dado un número cantidadASacar y un color colorASacar, saque tantas bolitas como se indica del
+color dado de la celda actual.
+*/
+procedure Sacar_DeColor_(cantidadASacar, colorASacar){
+    /*PROPOSITO: sacar tantas bolitas dadas **cantidadASacar** de color **colorASacar**.
+    PARAMETROS: * cantidadASacar : numero - cantidad de bolitas a sacar
+                * colorASacar : color - color de las bolitas a sacar
+    PRE-CONDICIONES: tener la cantidad de bolitas a sacar **cantidadASacar** */
+    repeat(cantidadASacar){
+        Sacar(colorASacar)
+    }
+}
+------------------------------------------------------------------------------------------------------------
+//Practica 5
+/*
+6. Sacando todas las de un color
+BIBLIOTECA Escribir un procedimiento SacarTodasLasDeColor_(colorASacar), que quite de la
+celda actual todas las bolitas del color indicado por el parámetro.
+*/
+procedure SacarTodasLasDeColor_(colorASacar){
+	/*PROPÓSITO: Saca todas las bolitas que hay en la posicion actual del color dado en **colorASacar**
+  	PARAMETROS: * colorASacar: color -el color de bolitas a sacar
+  	PRECONDICIONES:ninguna.
+   	*/
+	repeat(nroBolitas(colorASacar)){
+	    Sacar(colorASacar)
+	}
+}
+-----------------------------------------------------------------------------------------------------------------
+//Practica 6
+/*4*/
+/*a.*/
+procedure Poner_Si_(color, condicion){
+	/*PROPOSITO: pone una bolita de color **color** si cumple la condicion **condicion** en la celda actual.
+ 	   PARAMETROS: 	* color: color - color de la bolita a poner
+			* condicion: expresion - condicion a cumplir.
+    	PRE-CONDICIONES: Ninguna.
+	*/
+	if (condicion){
+		Poner(color)
+	}
+}
+/*b*/
+procedure Sacar_Si_(color, condicion){
+	/*PROPOSITO: saca una bolita de color **color** si cumple la condicion **condicion** en la celda actual.
+ 	   PARAMETROS: 	* color: Color - color de la bolita a poner
+			* condicion: Boleeano - condicion a cumplir.
+    	PRE-CONDICIONES: tener al menos una bolita de color **color** en la celda actual 
+    	cuando se cumpla la condicion **condicion**.
+	*/
+	if(condicion){
+		Sacar(color)
+	}
+}
+/*c*/
+procedure Mover_Si_(direccion, condicion){
+	/*PROPOSITO: mueve el cabezal en direccion **direccion** si se cumple la condicion **condicion**.
+ 	   PARAMETROS: 	* direccion: Direccion - para donde se va a mover
+			* condicion: Boleeano - condicion a cumplir.
+    	PRE-CONDICIONES: tener al menos una celda en direccion **direeccion**
+    		cuando se cumpla la condicion **condicion**.
+	*/
+	if(condicion){
+		Mover(direcccion)
+	}
+}
+//Practica 7
+/*2*/
+/*a.*/
+function esCeldaVacia(){
+     /*PROPOSITO: sensar si esta vacia la celda actual.
+   	PRE-CONDICIONES: ninguna. 
+   	TIPO:Boleeana
+   	*/
+   	if(cantidadDeBolitasEnLaCelda()=0){
+   	    return(True)
+   	}
+}
+/*b.*/
+function tieneUnDeCada(){
+   	/*PROPOSITO: sensar si hay bolitas de todos los colores en la celda actual.
+   	PRE-CONDICIONES: ninguna. 
+   	TIPO:Boleeana
+   	*/
+   	if(hayBolitas(Rojo)&&hayBolitas(Negro)&&hayBolitas(Azul)&&hayBolitas(Verde)){
+   	    return(True)
+   	}
+}
+/*c*/
+function esCeldaConBolitas(){
+    /*PROPOSITO: sensar si hay al menos una bolita de cualquier color la celda actual.
+   	PRE-CONDICIONES: ninguna. 
+   	TIPO:Boleeana
+   	*/
+   	if(hayBolitas(Rojo)||hayBolitas(Negro)||hayBolitas(Azul)||hayBolitas(Verde)){
+   	    return(True)
+   	}
+}
+/*6*/
+/*a.*/
+procedure IrAPrimeraCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria){
+    /*PROPOSITO: posiciona el cabezal en la celda donde empezar un recorrido hacia **driPrincipal**
+    y **dirSecundaria**.
+    PARAMETROS: * dirPrincipal: direccion- hacia donde se mueve el cabezal
+                * dirSecundaria: direccion- hacia donde se mueve el cabezal
+   	PRE-CONDICIONES: no pueden ser iguales o opuestos **dirPrincipal** con **dirSecundaria**.
+	*/
+	IrAlBorde(opuesto(dirPrincipal))
+	IrAlBorde(opuesto(dirSecundaria))
+}
+/*b.*/
+function haySiguienteCeldaEnUnRecorridoAl_Y_(dirPrincipal,dirSecundaria){
+    return (puedeMover(dirPrincipal)||puedeMover(dirSecundaria))
+}
+/*c.*/
+procedure IrASiguienteCeldaEnUnRecorridoAl_Y_(dirPrincipal,dirSecundaria){
+    /*PROPOSITO: mueve el cabezal en la siguienteposicion de un recorrido hacia **driPrincipal**
+    y **dirSecundaria**.
+    PARAMETROS: * dirPrincipal: direccion- hacia donde se mueve el cabezal
+                * dirSecundaria: direccion- hacia donde se mueve el cabezal
+   	PRE-CONDICIONES: no pueden ser iguales o opuestos **dirPrincipal** con **dirSecundaria**.
+	*/
+	while(puedeMover(dirPrincipal)||puedeMover(dirSecundaria){
+	    if (puedeMover(dirPrincipal)){
+	        Mover(dirPrincipal)
+	    }else{
+	        Mover(dirSecundaria)
+	    }
+	}
+}

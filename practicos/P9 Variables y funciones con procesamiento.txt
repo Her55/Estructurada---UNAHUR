@@ -1,0 +1,82 @@
+/*
+author Hernan Viltez
+*/
+
+//1
+function tieneBolitas_Al_(color,direccion){
+     /*PROPOSITO: indica si la celda lindante a la **direccion** tiene bolitas de **color**.
+    PARAMETROS: direccion: Direccion- hacia donde se mueve el cabezal
+            *color : Color - color de bolita
+   	PRE-CONDICIONES: tener al menos una celda lindante al **direccion**.
+   	tipo: boolean
+	*/
+	haybolitas:=False
+	Mover(direccion)
+	if(hayBolitas(color)){
+	    haybolitas:=True
+	}
+	Mover(opuesto(direccion))
+	return(haybolitas)
+}
+//2
+function hayBolitas_Al_(color,direccion){
+     /*PROPOSITO: indica si la celda lindante a la **direccion** tiene bolitas de **color**.
+    PARAMETROS: direccion: Direccion- hacia donde se mueve el cabezal
+            *color : Color - color de bolita
+   	PRE-CONDICIONES: ninguna.
+   	tipo: boolean
+	*/
+	haybolitas:=False
+	if (puedeMover(direccion)){
+	    haybolitas:=tieneBolitas_Al_(color,direccion)
+	}
+	return (haybolitas)
+}
+//3
+function hayBolitas_EnElBorde_(color,direccion){
+    /*PROPOSITO: indica si al final de la **dieccion** hay una bolitas de **color** .
+    PARAMETROS: direccion: Direccion- hacia donde se mueve el cabezal
+            *color : Color - color de bolita
+   	PRE-CONDICIONES: ninguna.
+   	tipo: boolean
+   	*/
+    cant:=0
+   	while(puedeMover(direccion)){
+   	    Mover(direccion)
+   	    cant:=(cant + 1)
+   	}
+   	haybolitas:=(hayBolitas(color))
+   	Mover_VecesAl_((cant-1),opuesto(direccion))
+   	return (haybolitas)
+}
+procedure Mover_VecesAl_(cantidadAMover, direccionAMover){
+    /*PROPOSITO: Moverse tantas cantidad de veces dadas **cantidadAMover**
+                hacia la **direccionAMover** celdas.
+    PARAMETROS: * cantidadAMover : numero - numero de celdas a moverse
+                * direccionAMover : cardinalidad - hacia donde se va a mover
+    PRE-CONDICIONES: tener tantas cantidad de celdas hacia **direccionAMover**. */
+    repeat(cantidadAMover){
+        Mover(direccionAMover)
+    }
+}
+//4
+function hayBolitas_hacia_(color,direccion){
+    /*PROPOSITO: indica si en el recorrido hacia **dieccion** hay al menos una bolita de **color** .
+    PARAMETROS: direccion: Direccion- hacia donde se mueve el cabezal
+            *color : Color - color de bolita
+   	PRE-CONDICIONES: ninguna.
+   	tipo: boolean
+   	*/
+   	haybolitas:=False
+   	cant:=0
+   	Mover(direccion)
+   	while(puedeMover(direccion)&& haybolitas==False){
+   	    Mover(direccion)
+   	    cant:=(cant + 1)
+   	    if(hayBolitas(color)){
+   	        haybolitas:=True
+   	    }
+   	}
+   	Mover_VecesAl_(cant,opuesto(direccion))
+   	return (haybolitas)
+}

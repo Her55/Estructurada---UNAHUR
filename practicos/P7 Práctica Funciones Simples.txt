@@ -1,0 +1,17 @@
+
+/*1*/
+/*a.*/
+function cantidadDeBolitasEnLaCelda(){
+    /*PROPOSITO: total de bolitas en la celda actual.
+   	PRE-CONDICIONES: ninguna. 
+	*/
+    return(nroBolitas(Rojo)+nroBolitas(Azul)+nroBolitas(Negro)+nroBolitas(Verde))
+}
+/*b.*/
+function hayMasDe5BolitasEnTotal(){
+    /*PROPOSITO: saber si hay mas de 5 bolitas en total en la celda actual.
+   	PRE-CONDICIONES: ninguna. 
+	*/
+	return(cantidadDeBolitasEnLaCelda()>5)
+}
+/*c.*/

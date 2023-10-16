@@ -1,0 +1,352 @@
+/*1.
+a.*/
+a. A =verdadero B=verdadero 	C=Falso
+b. A=Falso 	B= Falso	C=Verdadero
+c. A=Falso	B=Verdadero	C=Verdadero
+d. A=Verdadero	B=Verdadero	C=Falso
+e. A=Falso	B=Verdadero	C=Verdadero
+f. A=Falso	B=Falso		C=Verdadero
+
+Mover_SegunColor_(Norte, Verde){	
+	puedeMover(opuesto(opuesto(direccion)
+}
+g.A=V+V=Verdadero B= V+V=verdadero C=F+F=Falso
+not puedeMover(direccion) && not puedeMover(opuesto(direcccion))
+//-----------------------------------------------------------------------------------
+/*2.*
+a.	(nroBolitas(Rojo)>5)
+b.	(nroBolitas(Rojo)+nroBolitas(Negro)>=9)
+c.	(not puedoMover(Norte) && not puedoMover(Este))
+d.	not(hayBolitas(Rojo)&&hayBolitas(Negro)&&hayBolitas
+	(Verde)&&|hayBolitas(Azul))
+e.	not(puedoMover(Norte) && puedoMover(Este) && puedoMover(Sur) && puedoMover(Oeste))
+//------------------------------------------------------------------------------------
+/*3*/
+/*a.*/
+procedure SacarUnaFicha_SiSePuede(colorDeLaFicha){
+	/*PROPOSITO: Sacar ficha si es que hay en la celda actual.
+   	 PARAMETROS: * colorDeLaFicha: color - color de bolita a sacar           
+    	PRE-CONDICIONES: ninguna. 
+	OBSERVACIONES: las bolitas representan una ficha.
+	*/
+	if (hayBolitas(colorDeLaFicha)){
+		Sacar(colorDeLaFicha)
+	}
+}
+/*b*/
+procedure DesempatarParaElLocal_Contra(colorDelLocal, colorDelVisitante){
+	/*PROPOSITO: Otorga un punto al local **colorDelLocal** si hay la 
+	misma cantidad de visitantes **colorDelVisitante**.
+   	 PARAMETROS: * colorDelLocal: color - color de bolita del 
+		          * colorDelVisitante : color - color de bolita del visitante	
+    	PRE-CONDICIONES: ninguna. 
+	OBSERVACIONES: las bolitas representan un jugador.
+	*/
+	if (nroBolitas(colorDelLocal)==nroBolitas(colorDelVisitante){
+		Poner(colorDelLocal)
+	}
+}
+//----------------------------------------------------------------------------------------------------------------------
+/*c*/
+procedure ExpandirBacteriaDeLaColonia(){
+	/*PROPOSITO: agrega una bacteria, si hay cultivos de bacterias y suficientes nutrientes.   	
+    	PRE-CONDICIONES: ninguna. 
+	OBSERVACIONES: las bolitas verdes son bacterias y las rojas nutrientes.
+	*/
+	if (hayBolitas(Verde) && (nroBolitas(Rojo)>nroBolitas(Verde)){
+		Poner(Verde)
+		Sacar_DeColor_(2, Rojo)
+	}
+}
+procedure Sacar_DeColor_(cantidadASacar, colorASacar){
+    /*PROPOSITO: sacar tantas bolitas dadas **cantidadASacar** de color **colorASacar**.
+    PARAMETROS: * cantidadASacar : numero - cantidad de bolitas a sacar
+                * colorASacar : color - color de las bolitas a sacar
+    PRE-CONDICIONES: tener la cantidad de bolitas a sacar **cantidadASacar** */
+    repeat(cantidadASacar){
+        Sacar(colorASacar)
+    }
+}
+//---------------------------------------------------------------------------------------------------------------------
+/*d*/
+procedure PonerFlecha_AlNorteSiCorresponde(colorDeLaFlecha){
+	 /*PROPOSITO: pone una flecha **colorDeLaFlecha** al norte si hay lugar.
+ 	   PARAMETROS: * colorDeLaFlecha: color - color de la bolita a poner
+    	PRE-CONDICIONES: Ninguna.
+	OBSERVACIONES: las bolitas representan a una flecha.
+	*/
+	if (puedoMover(Norte){
+		Mover(Norte)
+		poner(colorDeLaFlecha)
+		Mover(Sur)
+	}	
+}
+//------------------------------------------------------------------------------------------------------------------
+/*4*/
+/*a.*/
+procedure Poner_Si_(color, condicion){
+	/*PROPOSITO: pone una bolita de color **color** si cumple la condicion **condicion** en la celda actual.
+ 	   PARAMETROS: 	* color: color - color de la bolita a poner
+			* condicion: expresion - condicion a cumplir.
+    	PRE-CONDICIONES: Ninguna.
+	*/
+	if (condicion){
+		Poner(color)
+	}
+}
+/*b*/
+procedure Sacar_Si_(color, condicion){
+	/*PROPOSITO: saca una bolita de color **color** si cumple la condicion **condicion** en la celda actual.
+ 	   PARAMETROS: 	* color: Color - color de la bolita a poner
+			* condicion: Boleeano - condicion a cumplir.
+    	PRE-CONDICIONES: tener al menos una bolita de color **color** en la celda actual 
+    	cuando se cumpla la condicion **condicion**.
+	*/
+	if(condicion){
+		Sacar(color)
+	}
+}
+/*c*/
+procedure Mover_Si_(direccion, condicion){
+	/*PROPOSITO: mueve el cabezal en direccion **direccion** si se cumple la condicion **condicion**.
+ 	   PARAMETROS: 	* direccion: Direccion - para donde se va a mover
+			* condicion: Boleeano - condicion a cumplir.
+    	PRE-CONDICIONES: tener al menos una celda en direccion **direeccion**
+    		cuando se cumpla la condicion **condicion**.
+	*/
+	if(condicion){
+		Mover(direcccion)
+	}
+}
+//--------------------------------------------------------------------------------------------------------------------------
+/*5*/
+/*b.*/
+procedure SacarExactamente_bolitasDeColor_(cantidadASacar, colorASacar){
+	/*PROPOSITO: sacar un numero de bolitas dadas ** cantidadASacar** de color **colorASacar**.
+ 	   PARAMETROS: 	* cantidadASacar: numero - cantidad de bolitas a sacar.
+			* colorASacar: color - color de bolita a sacar.
+    	PRE-CONDICIONES: ninguna.
+	*/
+	if(hayBolitas(colorASacar)){
+		Sacar_DeColor_(cantidadASacar, colorASacar)
+	}
+	
+	
+}
+procedure Sacar_DeColor_(cantidadASacar, colorASacar){
+    /*PROPOSITO: sacar tantas bolitas dadas **cantidadASacar** de color **colorASacar**.
+    PARAMETROS: * cantidadASacar : numero - cantidad de bolitas a sacar
+                * colorASacar : color - color de las bolitas a sacar
+    PRE-CONDICIONES: tener la cantidad de bolitas a sacar **cantidadASacar** 
+	*/
+    repeat(cantidadASacar){
+        Sacar(colorASacar)
+    }
+}
+//--------------------------------------------------------------------------------------------------------------------------
+/*6*/
+/*a.*/
+procedure Depositar_EnMoneda_ComoPesos(cantidadADepositar, moneda){
+	/*PROPOSITO: agrega a la cuenta la cantidad dada **cantidadADepositar**
+	 de la moneda **moneda** convertida a pesos argentinos.
+ 	PARAMETROS: 	* cantidadADepositar: numero - cantidad de moneda a convertir.
+			* moneda: color- color de bolita.
+    	PRE-CONDICIONES: ninguna.
+	OBSERVACIONES: bolitas negras= pesosArg, verdes=dolares, azules=euros,
+	rojo=yuanes chinos
+	*/
+	if(moneda==Verde){
+		Poner_DeColor_(cantidadADepositar*80, Negro)
+	}
+	elseif(moneda==Azul){
+			Poner_DeColor_(cantidadADepositar*90, Negro)
+	}
+	elseif(moneda==Rojo){
+			Poner_DeColor_(cantidadADepositar*12, Negro)
+	}
+	elseif(moneda==Negro){
+			Poner_DeColor_(cantidadADepositar, Negro)
+	}
+}
+procedure Poner_DeColor_(cantidadAPoner, colorAPoner){
+    /*PROPOSITO: poner tantas bolitas dadas por **cantidadAPoner** de color dado
+    por **colorAPoner**
+    PARAMETROS: * cantidadAPoner : numero - cantidad de bolitas a poner
+                * colorAPoner : color - color de la bolita
+    PRE-CONDICIONES: ninguna.  */
+    repeat(cantidadAPoner){
+        Poner(colorAPoner)
+    }
+}
+---------------------------------------------------------------------------------------------
+/*b.*/
+procedure ExtraerHasta_EnMoneda_(cantidadAExtraer, moneda){
+	/*PROPOSITO: Extrae de la cuenta la cantidad dada **cantidadAExtraer**
+	 de la moneda **moneda** si no hay suficientes fondos extrae lo q halla .
+ 	PARAMETROS: 	* cantidadAExtraer: numero - cantidad de bolitas a extraer.
+			* moneda: color- color de bolita.
+    	PRE-CONDICIONES: ninguna.
+	OBSERVACIONES: bolitas negras= pesosArg, verdes=dolares, azules=euros,
+	rojo=yuanes chinos
+	*/
+	if(moneda==Verde && cantidadAExtraer<=nroBolitas(Verde)){
+	    Sacar_DeColor_(cantidadAExtraer,Verde)
+	}    
+	elseif(moneda==Azul && cantidadAExtraer<=nroBolitas(Azul)){		
+	    Sacar_DeColor_(cantidadAExtraer,Azul)	   
+	}
+	elseif(moneda==Rojo && cantidadAExtraer<=nroBolitas(Rojo)){		
+	    Sacar_DeColor_(cantidadAExtraer,Rojo)	    
+	}
+	else {Sacar_DeColor_(nroBolitas(moneda),moneda)}
+}
+procedure Sacar_DeColor_(cantidadASacar, colorASacar){
+    /*PROPOSITO: sacar tantas bolitas dadas **cantidadASacar** de color **colorASacar**.
+    PARAMETROS: * cantidadASacar : numero - cantidad de bolitas a sacar
+                * colorASacar : color - color de las bolitas a sacar
+    PRE-CONDICIONES: tener la cantidad de bolitas a sacar **cantidadASacar** 
+	*/
+    repeat(cantidadASacar){
+        Sacar(colorASacar)
+    }
+}
+-----------------------------------------------------------------------------------------
+/*c.*/
+procedure ConvertirHasta_PesosA_(pesosAConvertir, moneda){
+	/*PROPOSITO: Convierte una cantidad de pesos dados **pesosAConvertir**,
+	a la moneda dada **moneda** si no hay suficientes se vacia la cuenta pesos sin recibir nada.
+ 	PARAMETROS:	* pesosAConvertir: numero - cantidad de bolitas negras a extraer.
+		    	* moneda: color- color de bolita.
+    	PRE-CONDICIONES: ninguna.
+	OBSERVACIONES: bolitas negras= pesosArg, verdes=dolares, azules=euros,
+	rojo=yuanes chinos
+	*/
+	if(moneda==Verde){
+	    ConvertirPesosADolares(pesosAConvertir)
+	}
+	elseif(moneda==Azul){
+		ConvertirPesosAEuros(pesosAConvertir)
+	}
+	elseif(moneda==Rojo){
+		ConvertirPesosAYuanes(pesosAConvertir)
+	}	
+}
+procedure ConvertirPesosADolares(pesosAConvertir){
+	/*PROPOSITO: Convierte pesos a dolares, si no hay suficientes se vacia la cuenta pesos sin recibir nada.
+	PARAMETROS:	* pesosAConvertir: numero - cantidad de bolitas negras a extraer.
+ 	PRE-CONDICIONES: ninguna.
+	OBSERVACIONES: bolitas negras= pesosArg, verdes=dolares.
+	*/
+	if (nroBolitas(Negro)<100){
+	    Sacar_DeColor_(nroBolitas(Negro),Negro)
+	}else{
+	    Poner_DeColor_(pesosAConvertir div 100,Verde)
+	    Sacar_DeColor_(pesosAConvertir,Negro)}
+}
+procedure ConvertirPesosAEuros(pesosAConvertir){
+	/*PROPOSITO: Convierte pesos a euros, si no hay suficientes se vacia la cuenta pesos sin recibir nada.
+	PARAMETROS:	* pesosAConvertir: numero - cantidad de bolitas negras a extraer.
+ 	PRE-CONDICIONES: ninguna.
+	OBSERVACIONES: bolitas negras= pesosArg, azules=euros.
+	*/
+	if (nroBolitas(Negro)<100){
+	    Sacar_DeColor_(nroBolitas(Negro),Negro)
+	}else{
+	    Poner_DeColor_(pesosAConvertir div 115,Azul)
+	    Sacar_DeColor_(pesosAConvertir,Negro)}
+}
+procedure ConvertirPesosAYuanes(pesosAConvertir){
+	/*PROPOSITO: Convierte pesos a euros, si no hay suficientes se vacia la cuenta pesos sin recibir nada.
+	PARAMETROS:	* pesosAConvertir: numero - cantidad de bolitas negras a extraer.
+ 	PRE-CONDICIONES: ninguna.
+	OBSERVACIONES: bolitas negras= pesosArg, azules=euros.
+	*/
+	if (nroBolitas(Negro)<100){
+	    Sacar_DeColor_(nroBolitas(Negro),Negro)
+	}else{
+	    Poner_DeColor_(pesosAConvertir div 17,Rojo)
+	    Sacar_DeColor_(pesosAConvertir,Negro)}
+}
+procedure Sacar_DeColor_(cantidadASacar, colorASacar){
+    /*PROPOSITO: sacar tantas bolitas dadas **cantidadASacar** de color **colorASacar**.
+    PARAMETROS: * cantidadASacar : numero - cantidad de bolitas a sacar
+                * colorASacar : color - color de las bolitas a sacar
+    PRE-CONDICIONES: tener la cantidad de bolitas a sacar **cantidadASacar** 
+	*/
+    repeat(cantidadASacar){
+        Sacar(colorASacar)
+    }
+}
+procedure Poner_DeColor_(cantidadAPoner, colorAPoner){
+    /*PROPOSITO: poner tantas bolitas dadas por **cantidadAPoner** de color dado
+    por **colorAPoner**
+    PARAMETROS: * cantidadAPoner : numero - cantidad de bolitas a poner
+                * colorAPoner : color - color de la bolita
+    PRE-CONDICIONES: ninguna.  */
+    repeat(cantidadAPoner){
+        Poner(colorAPoner)
+    }
+}
+-----------------------------------------------------------------------------------------
+/*d.*/
+program{
+    RealizarCorridaCambiaria()
+}
+procedure RealizarCorridaCambiaria(){
+    /*PROPOSITO:realiza una corrida bancaria, pasando todas las cuentas de pesos a dolares.
+ 	PRE-CONDICIONES: tener un tablero de 1x10.
+	OBSERVACIONES: bolitas negras= pesosArg, verdes=dolares, azules=euros,
+	rojo=yuanes chinos
+	*/
+    repeat(9){
+        ConvertirHasta_PesosA_(nroBolitas(Negro), Verde)
+        Mover(Este)
+    }
+    ConvertirHasta_PesosA_(nroBolitas(Negro), Verde)
+    IrAlBorde(Oeste)
+	
+}
+procedure Sacar_DeColor_(cantidadASacar, colorASacar){
+    /*PROPOSITO: sacar tantas bolitas dadas **cantidadASacar** de color **colorASacar**.
+    PARAMETROS: * cantidadASacar : numero - cantidad de bolitas a sacar
+                * colorASacar : color - color de las bolitas a sacar
+    PRE-CONDICIONES: tener la cantidad de bolitas a sacar **cantidadASacar** 
+	*/
+    repeat(cantidadASacar){
+        Sacar(colorASacar)
+    }
+}
+procedure Poner_DeColor_(cantidadAPoner, colorAPoner){
+    /*PROPOSITO: poner tantas bolitas dadas por **cantidadAPoner** de color dado
+    por **colorAPoner**
+    PARAMETROS: * cantidadAPoner : numero - cantidad de bolitas a poner
+                * colorAPoner : color - color de la bolita
+    PRE-CONDICIONES: ninguna.  */
+    repeat(cantidadAPoner){
+        Poner(colorAPoner)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

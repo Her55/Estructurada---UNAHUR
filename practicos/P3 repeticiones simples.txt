@@ -1,0 +1,95 @@
+program{
+     PintarElTableroDeAzul()
+}
+
+//1.
+procedure Mover3VecesAlNorte(){
+    /*Proposito: mueve el cabezal 3 lugares al norte
+    pre-condiciones: debe haber al menos 3 celdas al norte
+    */
+    repeat(3){
+        Mover(Norte)
+    }
+}
+
+//2.
+procedure Mover3VeceslEste(){
+    /*proposito:mueve el cabezal 3 lugares al este
+    pre-condiciones: debe haber al menos 3 celdas al este
+    */
+    repeat(3){
+        Mover(Este)
+    }
+}
+
+//3.
+procedure Poner6DeColorNegro(){
+    /*Proposito: poner 6 bolitas negras
+    Pre-condiciones: ninguna.
+    */
+    repeat(6){
+        Poner(Negro)
+    }
+}
+
+//4.
+procedure Poner6DeColorVerde(){
+    /*Proposito: poner 6 bolitas verdes
+    Pre-condiciones: ninguna.
+    */
+    repeat(6){
+        Poner(Verde)
+    }
+}
+
+//5.
+procedure DibujarRectanguloRojoYNegroDe5x3(){
+    /*Proposito: dibuja rectangulo con bolitas de rojo y negro de 5x3 
+		 desde el borde sur-oeste
+    Pre-condiciones: tener un tablero de al menos 5x3 vacio
+    */
+    IrAlBorde(Sur)
+    repeat(2){
+        DibujarFilaDeRojoYNegro()
+        Mover(Norte)
+    }
+    DibujarFilaDeRojoYNegro()
+}
+procedure DibujarFilaDeRojoYNegro(){
+     /*Proposito: dibujar una fila de bolitas rojas y negras de 5 celdas hacia el este
+		  desde el borde oeste
+    Pre-condiciones: tener una fila de 5 celdas vacias hacia el este
+    */
+    IrAlBorde(Oeste)
+    repeat(4){
+        Poner(Rojo)
+        Poner(Negro)
+        Mover(Este)
+    }
+    Poner(Rojo)
+    Poner(Negro)
+}
+
+//6.
+procedure PintarElTableroDeAzul(){
+    /*Proposito: pintar un tablero de 10x7 con bolitas azules
+    Pre-condiciones: tener un tablero de 10x7 vacio
+    */
+    IrAlBorde(Sur)
+    repeat(6){
+        PintarFilaDeAzul()
+        Mover(Norte)
+    }
+    PintarFilaDeAzul()
+}
+procedure PintarFilaDeAzul(){
+    /*Proposito: pintar un tablero de 10x7 con bolitas azules
+    Pre-condiciones: tener un fila de 10 vacia
+    */
+    IrAlBorde(Oeste)
+    repeat(9){
+        Poner(Azul)
+        Mover(Este)
+    }
+    Poner(Azul)
+}
