@@ -3,4 +3,4 @@
 # Programacion estructurada
 
 ## Practicos y parciales en Gobstones
-2do cautrimestre 2023
+2do Cuatrimestre 2023
